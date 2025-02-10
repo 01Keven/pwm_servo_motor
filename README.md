@@ -40,7 +40,7 @@ O código foi dividido em três arquivos principais:
 #define PWM_SERVO_MOTOR 22 // Definição do pino do servo motor
 
 // Função para movimentar o servo motor de 0 a 180 graus e vice-versa
-void mexe_servo_motor_de_0_a_180_e_reverso();
+void mexe_servo_motor);
 
 #endif
 ```
@@ -48,7 +48,7 @@ void mexe_servo_motor_de_0_a_180_e_reverso();
 ✔ `#ifndef SERVO_MOTOR_H` e `#define SERVO_MOTOR_H` → Evita que o arquivo seja incluído mais de uma vez.  
 ✔ `#include "pico/stdlib.h"` e `#include "hardware/pwm.h"` → Bibliotecas necessárias para o funcionamento do PWM.  
 ✔ `#define PWM_SERVO_MOTOR 22` → Define o pino GPIO utilizado para o servo.  
-✔ Declara a função `mexe_servo_motor_de_0_a_180_e_reverso()`, que será definida no arquivo `.c`.  
+✔ Declara a função `mexe_servo_motor()`, que será definida no arquivo `.c`.  
 
 ---
 
@@ -59,7 +59,7 @@ void mexe_servo_motor_de_0_a_180_e_reverso();
 #include "servo_motor.h"
 #include <stdio.h>
 
-void mexe_servo_motor_de_0_a_180_e_reverso() {
+void mexe_servo_motor() {
     uint ciclo_ativo = 625; // Posição inicial do servo motor (0 graus)
     
     printf("Movendo de 0 para 180 graus...\n");
@@ -134,7 +134,7 @@ int main() {
 
     // Loop principal
     while (true) {
-        mexe_servo_motor_de_0_a_180_e_reverso();
+        mexe_servo_motor();
     }
 }
 ```
@@ -148,29 +148,18 @@ int main() {
 ---
 
 ## **Compilação e Execução**
-### **➡ Compilação manual**
-```sh
-gcc main.c servo_motor.c -o meu_programa -lpico_stdlib -lhardware_pwm
-```
 
 ### **➡ Usando CMake (`CMakeLists.txt`)**
-Se estiver usando **CMake**, adicione:
+Foi adicionado ao **CMake**:
 ```cmake
 add_executable(meu_programa
-    main.c
-    servo_motor.c
+    pwm_servo_motor.c
+    lib/servo_motor.c
 )
-
-target_link_libraries(meu_programa pico_stdlib hardware_pwm)
-
-pico_add_extra_outputs(meu_programa)
-```
-Depois, rode:
-```sh
-mkdir build
-cd build
-cmake ..
-ninja
 ```
 
----
+### **Clonar Repositório**
+```
+git remote add origin https://github.com/01Keven/pwm_servo_motor.git
+```
+Clone o projeto para conseguir rodar ele localmente.
