@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/pwm_servo_motor.uf2'
+elf = 'build/pwm_servo_motor.elf'
