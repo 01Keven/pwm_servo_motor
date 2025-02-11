@@ -1,7 +1,6 @@
 # **Controle de Servo Motor com Raspberry Pi Pico W**
 ## **Visão Geral**
-Este projeto controla um **servo motor** usando **PWM (Pulse Width Modulation)** no microcontrolador **Raspberry Pi Pico**. O código faz o servo se mover de **0° a 180°** e depois voltar para **0°**, repetidamente.  
-
+Este projeto controla um **servo motor** usando **PWM (Pulse Width Modulation)** no microcontrolador **Raspberry Pi Pico**.
 ## **Video Apresentação**
 
 https://drive.google.com/file/d/12O62ZDkDq_WU_7WzxygeqzjNbCqq_G_v/view?usp=sharing
